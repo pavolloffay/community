@@ -7,6 +7,7 @@ The OpenTelemetry project consists of a large number of components, including co
 Large language models (LLMs) and Agentic Workflows present a significant opportunity to simplify the adoption, implementation, and management of the OpenTelemetry stack. An AI agent could, for example, facilitate configuration changes, resolve deployment issues, or assist and simplify the instrumentation process.
 
 At the moment, the OpenTelemetry project does not have official support for these workflows. This has led to the creation of several independent, open-source projects (MCP servers) to fill the gap.
+The [Can AI instrument OpenTelemetry](https://quesma.com/benchmarks/otel/) Benchmark demonstrates the complexity of instrumentation process and shows the gap of successfully using AI agents with OpenTelemetry.
 
 As AI tooling becomes a standard part of developer workflows. Users, which are looking to extend their agents with tooling optimized for OpenTelemetry, have no easy way to discover what's available in the ecosystem. There's no central place to learn which MCP servers or other tools exist, what capabilities they offer, or where to file issues/requests.
 
