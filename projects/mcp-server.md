@@ -17,6 +17,7 @@ This project is also motivated by the need to support the [Stability Proposal](h
 
 The proliferation of these projects demonstrates strong community interest and the clear potential of this technology:
 
+* [open-telemetry/weaver](https://github.com/open-telemetry/weaver): MCP server for the OpenTelemetry Weaver
 * [pavolloffay/opentelemetry-mcp-server](https://github.com/pavolloffay/opentelemetry-mcp-server): Focuses on collector configuration.
 * [austinlparker/otel-mcp](https://github.com/austinlparker/otel-mcp): Handles collector configuration and data profiling.
 * [mottibec/otelcol-mcp](https://github.com/mottibec/otelcol-mcp): Focuses on collector configuration.
@@ -39,7 +40,7 @@ Maintenance is also complex. The ecosystem evolves rapidly, introducing frequent
 
 The scope of this project is to enable **Agentic Workflows** for OpenTelemetry to simplify deployment, configuration, and day-2 operations across the OpenTelemetry project (collectors, SDKs, instrumentation, semantic conventions). To support this workflow, a standardized interface is required for Agents and LLMs to interact with the OpenTelemetry ecosystem. The project will focus on [The Model Context Protocol (MCP)](https://modelcontextprotocol.io/) and [Agent Skills](https://agentskills.io/home) concepts to provide this interface for agents to interact with the OpenTelemetry projects. 
 
-The goal of this SIG is to deliver an initial implementation of MCP server(s) and/or Agent Skills for the OpenTelemetry project in coordination with existing SIGs to ensure coherent behaviour and end user experience. We will establish bi-directional collaboration to ensure implementation ownership is mutually agreed upon, such that each new component has a clear owner/maintainer aligned with best practices of the targeted SIGs.
+The goal of this SIG is to deliver an initial implementation of MCP server(s) and/or Agent Skills for the OpenTelemetry project in coordination with existing SIGs to ensure coherent behavior and end user experience. We will establish bi-directional collaboration to ensure implementation ownership is mutually agreed upon, such that each new component has a clear owner/maintainer aligned with best practices of the targeted SIGs.
 
 This initial implementation of MCP and/or Agent Skills will be a research project, and the learning and results of this project, will be used to inform future development of reference implementations in a later phase of this project. This initial implementation may be used as a foundation for the reference implementation, but because the space of "agentic workflows" is still evolving rapidly, we reserve the right to deprecate it.
 
@@ -64,7 +65,7 @@ The Collector follows a fast two-week release cadence, which requires constant m
 The Semantic Convention registry contains a large number of entries. They can be hard to grasp, easy to miss, and sometimes difficult to find. An agent can provide concrete recommendations about which attributes to use and which to avoid, but this requires tooling that condenses the registry into context-optimized pieces to avoid polluting the context window.
 
 * Provide context-optimized querying of the Semantic Conventions registry.
-* Enable agents to assist with maintaining codebases to add and update semantic conventions, potentially integrating with [Weaver](https://github.com/open-telemetry/weaver).
+* As the Weaver project already supports MCP, the Weaver related use-cases should be handled by the Weaver MCP server. For instance verify that the a given component data matches the registry, suggest improvements based on the semconv, assist with code generation.
 
 #### Instrumentation & SDKs
 
@@ -73,6 +74,10 @@ Instrumentation involves SDK setup, configuration, and code. Each step has its o
 * Enable agents to discover and configure SDK and auto-instrumentation.
 * Enable agents to analyze instrumentation quality (detecting broken traces, missing context).
 * Enable agents to surface relevant documentation during instrumentation workflows.
+
+The OpenTelemetry ecosystem supports SDK/instrumentation for many languages. 
+The project will initially focus on SDK/instrumentation for a language that is mostly used without auto-instrumentation (e.g. Golang) to minimize the complexity of the manual instrumentation.
+Support for other languages will be added once the initial implementation is validated.
 
 #### Documentation and distribution
 
